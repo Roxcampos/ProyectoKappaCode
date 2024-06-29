@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda KappaCode</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./js/script.js"></script>
+    <script src="./js/productos.js"></script>
+</head>
+
+<body>
+   <header>
+    <!-- llamo al header -->
+    <script>
+        $(function(){
+            $("#header").load("header.html");
+        });
+    </script>
+    <!-- sin este div por alguna razon no se visualiza, supongo que hace que se muestre y por eso el #header de la funsion anterior -->
+   <div id="header"></div>
+<!-- Claro, desglosemos paso a paso lo que hace ese código:
+
+1- <script>: Esta etiqueta HTML se utiliza para incluir código JavaScript en la página.
+2- $(function(){ ... }): Esto es una abreviatura de $(document).ready(function(){ ... }). Es una función de jQuery que se ejecuta cuando el documento HTML está completamente cargado y listo para manipularse.
+3- $("#header").load("header.html");:
+   · $("#header"): Esto selecciona el elemento con el id "header". Es decir, busca un elemento en el HTML con el atributo id igual a "header".
+   · .load("header.html"): Este método de jQuery carga el contenido de un archivo HTML (en este caso, "header.html") y lo inserta dentro del elemento seleccionado. En este caso, insertará el contenido de "header.html" dentro del elemento con el id "header".
+4- <div id="header"></div>: Este es el contenedor en el HTML donde se cargará el contenido del encabezado. Es un div con el id "header". -->
+<!-- main mostramos tarjetas de productos -->
+</header>
+    <main>
+        <div class="contenedor-banner">
+            <img src="img/banner.webp">
+        </div>
+        <div id="productos">
+    <!-- Aquí se cargan los productos -->
+</div>
+<div class="tabla-calculo" id="tabla-calculo">
+  <table class="tabla">
+      <caption>Carrito de Compras</caption>
+      <thead>
+          <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+          </tr>
+      </thead>
+      <tbody id="carrito-body">
+          <tr data-id="1">
+              <td>Producto 1</td>
+              <td>
+                  <div class="btn-group">
+                      <button class="cantidad-btn" data-id="1" data-action="decrement">-</button>
+                      <span>2</span>
+                      <button class="cantidad-btn" data-id="1" data-action="increment">+</button>
+                      <button class="eliminar-btn" data-id="1">Eliminar</button>
+                  </div>
+              </td>
+              <td>$10</td>
+              <td>$20</td>
+          </tr>
+          <!-- More rows as needed -->
+      </tbody>
+      <tfoot id="tfooter">
+          <tr id="empty-cart-message" style="display:none;">
+              <td class="border-bottom-left border-bottom-right" colspan="4">¡No hay ningún elemento en el carrito!</td>
+          </tr>
+          <tr id="total-row">
+              <td class="border-bottom-left" colspan="2">Total</td>
+              <td class="border-bottom-right" id="total-price">$0.00</td>
+              <td></td>
+          </tr>
+      </tfoot>
+  </table>
+</div>
+<div class="botones-acciones">
+  <button id="continuar-comprando" class="btn-accion" onclick="location.href='productos.html'" >Continuar comprando</button>
+  <button id="iniciar-pago" class="btn-accion">Iniciar pago</button>
+</div>      
+</main>
+<footer>   <!-- llamo al footer -->
+    <script>
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <!-- sin este div por alguna razon no se visualiza, supongo que hace que se muestre y por eso el #header de la funsion anterior -->
+   <div id="footer"></div>
+</footer>
+<script src="./js/script.js"></script>
+</body>
+
+</html>
