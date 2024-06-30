@@ -19,7 +19,17 @@ class Usuario(db.Model):
         self.correo = correo
         self.contrasena = contrasena
         self.rol = rol
-
+        
+    def to_dict(self):
+        return {
+        'id': self.id,
+        'usuario': self.usuario,
+        'nombres': self.nombres,
+        'apellidos': self.apellidos,
+        'correo': self.correo,
+        'contrasena': self.contrasena,
+        'rol': self.rol
+        }
 
 with app.app_context():
     db.create_all()  # aqui crea todas las tablas

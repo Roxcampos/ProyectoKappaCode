@@ -13,14 +13,17 @@ usuario_schema=UsuarioSchema()  # El objeto producto_schema es para traer un pro
 usuarios_schema=UsuarioSchema(many=True)  # El objeto productos_schema es para traer multiples registros de producto
 
 # crea RUTAS para usuarios
-@app.route('/usuarios',methods=['GET'])
-def get_Usuarios():
-    all_usuarios=Usuario.query.all() # el metodo query.all() lo hereda de db.Model
-    result=usuario_schema.dump(all_usuarios)  #el metodo dump() lo hereda de ma.schema y
-                                                 # trae todos los registros de la tabla
-    return jsonify(result)     # retorna un JSON de todos los registros de la tabla
+#@app.route('/usuarios',methods=['GET'])
+#def get_Usuarios():
+ #   all_usuarios=Usuario.query.all() # el metodo query.all() lo hereda de db.Model
+  #  result=usuario_schema.dump(all_usuarios)  #el metodo dump() lo hereda de ma.schema y
+   #                                              # trae todos los registros de la tabla
+   # return jsonify(result)     # retorna un JSON de todos los registros de la tabla
 
-
+@app.route('/usuarios', methods=['GET'])
+def get_usuarios():
+    usuarios = Usuario.query.all()
+    return jsonify([usuario.to_dict() for usuario in usuarios])
 
 
 @app.route('/usuarios/<id>',methods=['GET'])
