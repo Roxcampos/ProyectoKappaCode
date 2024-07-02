@@ -22,9 +22,10 @@ usuarios_schema=UsuarioSchema(many=True)  # El objeto productos_schema es para t
 
 @app.route('/usuarios', methods=['GET'])
 def get_usuarios():
-    usuarios = Usuario.query.all()
-    return jsonify([usuario.to_dict() for usuario in usuarios])
-
+    all_usuarios=Usuario.query.all()         # el metodo query.all() lo hereda de db.Model
+    result=usuarios_schema.dump(all_usuarios)  # el metodo dump() lo hereda de ma.schema y
+                                               # trae todos los registros de la tabla
+    return jsonify(result)  
 
 @app.route('/usuarios/<id>',methods=['GET'])
 def get_usuario(id):
