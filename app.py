@@ -18,7 +18,8 @@ ma=Marshmallow(app)   #crea el objeto ma de de la clase Marshmallow
 from controladores.producto_controlador import *
 
 from controladores.usuario_controlador import *
-#from controladores.tipoProducto_controlador import *
+
+from controladores.compra_controlador import *
 
 # programa principal *******************************
 if __name__=='__main__':  
